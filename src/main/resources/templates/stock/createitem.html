@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Item</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+</head>
+<body>
+<div th:replace="layout :: header"></div>
+<div class="middle" th:fragment="content">
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="form-container">
+        <h1 class="text-center mb-4" style="font-size: 32px;">Create Item</h1>
+        <form  th:action="@{/store/saveItem}" th:object="${stockDTO}" method="POST">
+            <div class="mb-3">
+                <label class="form-label">Item:</label>
+                <input th:type="text" class="form-control" th:field="*{itemName}" placeholder="Item name" required />
+            </div>
+            <p th:if="${errorMessage}" class="text-danger fw-bold" th:text="${errorMessage}"></p>
+
+            <div class="mb-3">
+                <label class="form-label">Brand:</label>
+                <input th:type="text" class="form-control" th:field="*{brandName}" placeholder="Brand name" required/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Price:</label>
+                <input th:type="number" class="form-control" th:field="*{priceItem}" step="0.01" placeholder="Price Item" required/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Quantity:</label>
+                <input th:type="number" class="form-control" th:field="*{quantity}" placeholder="Quantity" required/>
+            </div>
+            <button th:type="submit" class="btn btn-custom">Submit</button>
+        </form>
+        <div class="d-flex justify-content-center mt-3 gap-3">
+
+            <a th:href="@{/store/createstock1}" class="btn btn-custom-light">create another stock</a>
+        </div>
+
+    </div>
+</div>
+</div>
+</body>
+</html>

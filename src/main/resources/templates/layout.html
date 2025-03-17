@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+    <title>Store</title>
+</head>
+<body>
+
+<div class="complete">
+
+    <!-- Top Section (Fixed Navbar) -->
+    <div class="top" th:fragment="header">
+        <ul class="top-ul">
+            <a th:href="@{/store/home}"><h2>Home</h2></a>
+            <a th:href="@{/updatedelete/services}"><h2>Services</h2></a>
+            <a th:href="@{/logout}"><h2>Logout</h2></a>
+        </ul>
+    </div>
+
+    <!-- Middle Section (Dynamic Content) -->
+    <div class="middle" th:replace="~{::${content}}"></div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+<!--
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+    <title>Store</title>
+
+</head>
+<body>
+
+<div class="complete">
+
+
+    <div class="top" th:fragment="header">
+        <ul class="top-ul">
+            <a th:href="@{/store/home}"><h2>Home</h2></a>
+            <a th:href="@{/store/createitem}"><h2>Login</h2></a>
+            <a th:href="@{/store/searchItem}"><h2>Search</h2></a>
+            <a th:href="@{/store/services}"><h2>services</h2></a>
+        </ul>
+    </div>
+
+   Middle Section (Content will be inserted dynamically)
+    <div class="middle" th:replace="~{::${content}}"></div>
+
+    Bottom Section (Fixed)
+
+
+</div>
+
+</body>
+</html>
+-->

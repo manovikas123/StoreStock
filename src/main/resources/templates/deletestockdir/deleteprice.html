@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Price</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+</head>
+<body>
+<div th:replace="layout :: header"></div>
+<div class="middle" th:fragment="content">
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="form-container ">
+        <h1 class="text-center mb-4">Delete Price</h1>
+        <form th:action="@{/delete/deleteprice}" th:object="${stockDto}" method="Post" >
+
+            <div class="mb-3">
+                <label class="form-label">Item:</label>
+                <select class="form-select" th:field="*{itemName}" onchange="this.form.submit()">
+                    <option value="">Select Item</option>
+                    <option th:each="item :${stockDto.item}" th:value="${item.itemName}" th:text="${item.itemName}"></option>
+                </select>
+                <p th:if="${stockDto.itemName != null}" class="text-success fw-bold mt-2">
+                    You selected: <span th:text="${stockDto.itemName}"></span>
+                </p>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Brand:</label>
+                <select class="form-select" th:field="*{brandName}" onchange="this.form.submit()">
+                    <option value="">Select Brand</option>
+                    <option th:each="brands : ${stockDto.brand}" th:value="${brands.brandName}" th:text="${brands.brandName}"></option>
+                </select>
+            </div>
+            <p th:if="${stockDto.brandName != null}"  class="text-success fw-bold mt-2">
+                You selected: <span th:text="${stockDto.brandName}"></span>
+            </p>
+
+            <div class="mb-3">
+                <label class="form-label">Price:</label>
+                <select class="form-select" th:field="*{priceItem}">
+                    <option value="">Select Price</option>
+                    <option th:each="prices : ${stockDto.price}" th:value="${prices.priceItem}" th:text="${prices.priceItem}"></option>
+                </select>
+            </div>
+            <p th:if="${errorMessage}" class="text-danger fw-bold" th:text="${errorMessage}"></p>
+
+            <button type="submit" class="btn btn-custom w-100">Submit</button>
+        </form>
+        <div class="d-flex justify-content-center mt-3 gap-3">
+            <a th:href="@{/delete/price}" class="btn btn-custom-light">Go Back</a>
+            <a th:href="@{/delete/deletestock}" class="btn btn-custom-light">delete another stock</a>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

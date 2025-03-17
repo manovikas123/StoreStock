@@ -1,0 +1,243 @@
+/* Style for Top Navigation */
+.top {
+    position: fixed;
+    width: 100%;
+    background-color: #343a40; /* Dark background for contrast */
+    padding: 15px 0; /* Increased padding */
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Styling the top-ul for spacing and font */
+.top-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Increased gap between elements */
+}
+
+/* Style for links in the header */
+.top-ul a {
+    text-decoration: none;
+    font-size: 22px;
+    font-family: "Poppins", sans-serif; /* Modern font */
+    font-weight: 600;
+    color: #fff3cd; /* Light yellow text */
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.top-ul a:hover {
+    color: #ffd700; /* Bright yellow on hover */
+    transform: scale(1.1);
+}
+.footer {
+    text-align: center;
+    background-color: #343a40; /* Dark background */
+    color: #fff3cd; /* Light yellow text */
+    padding: 10px 0;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Form Select (Dropdown) */
+.form-select {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    width: 100%;
+    font-size: 16px;
+    background-color: #fff;
+}
+
+/* Focus Effect */
+.form-select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Hover Effect */
+.form-select:hover {
+    background-color: #f9f9f9;
+}
+.button-group {
+    display: flex;
+    gap: 15px; /* Creates space between buttons */
+    margin-top: 10px; /* Adds space from the form above */
+}
+
+
+/* Top Navigation */
+.top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #343a40;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.top-ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.top-ul a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.top-ul a:hover {
+    color: #f8d210;
+}
+
+/* Middle Content */
+.middle {
+    margin-top: 70px; /* To ensure content is below fixed nav */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* Forms */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Form Labels */
+.form-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Form Controls */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Dropdown (Select) */
+.form-select {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Buttons */
+.btn-custom {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}
+
+/* Larger Buttons for Services Page & CreateStock1 */
+
+.services-page .btn-custom,
+.delete-stock1-page .btn-custom,
+.create-stock1-page .btn-custom {
+    font-size: 35px;
+    padding: 15px 25px;
+}
+
+/* Footer (Only for Home Page) */
+.last {
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.last-ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.last-ul li h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.last-ul li p {
+    margin: 0;
+}
+/* Custom Light Yellow Buttons */
+.btn-custom-light {
+    background-color: #fff3cd; /* Light Yellow */
+    color: #856404; /* Darker Yellow for Text */
+    border: 1px solid #ffeeba; /* Border to match background */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+.btn-custom-light:hover {
+    background-color: #ffeeba; /* Slightly Darker Yellow */
+    color: #654c00;
+    border-color: #ffd966;
+}
+
+/* Ensure a gap between buttons */
+.gap-3 > * {
+    margin-right: 10px; /* Adds spacing */
+}
+
+.gap-3 > *:last-child {
+    margin-right: 0; /* Removes margin from last button */
+}
