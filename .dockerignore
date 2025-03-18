@@ -1,0 +1,14 @@
+# Ignore compiled code and build artifacts
+target/
+*.jar
+*.war
+*.log
+
+# IntelliJ and IDE files
+.idea/
+*.iml
+*.ipr
+
+# Git and Maven folders
+.git/
+.mvn/
