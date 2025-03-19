@@ -10,7 +10,7 @@
     <link rel="stylesheet" th:href="@{/css/demo.css}"/>
 </head>
 <body>
-<div th:insert="~{layout :: header}"></div>
+<div th:replace="layout :: header"></div>
 <div class="middle" th:fragment="content">
     <div class="container d-flex justify-content-center align-items-center vh-100">
 

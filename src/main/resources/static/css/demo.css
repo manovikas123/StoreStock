@@ -241,3 +241,7 @@ img {
 .gap-3 > *:last-child {
     margin-right: 0; /* Removes margin from last button */
 }
+.middle {
+    margin-top: 100px; /* Adjust this to match the navbar height */
+    padding: 20px;
+}
