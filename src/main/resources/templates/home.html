@@ -4,20 +4,86 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
     <link rel="stylesheet" th:href="@{/css/demo.css}"/>
-</head>
+   </head>
 <body>
 
-<!-- Include Layout Header -->
-<div th:replace="layout :: header"></div>
 
+<!-- Include Layout Header
+<div class="top" >
+    <ul class="top-ul">
+        <a th:href="@{/store/home}"><h2>Home</h2></a>
+        <a th:href="@{/employee/loginpage}"><h2>Login</h2></a>
+
+    </ul>
+</div>
+-->
+<div th:replace="layout :: header"></div>
 <div class="middle" th:fragment="content">
     <img src="https://gpsv.com.au/wp-content/uploads/2023/07/f40659ff-4a37-4196-9b21-21227e8bad17-1.jpg"
          alt="Super Market" class="img-fluid rounded">
 </div>
 
+
 <!-- Footer -->
-<div class="last">
+
+
+    <div class="last">
+        <ul class="last-ul">
+            <li>
+                <h2>Address</h2>
+                <p>Plot 12, Brindhavan Colony</p>
+                <p>Narapally</p>
+            </li>
+            <li>
+                <h2>Contact</h2>
+                <p>7285916761</p>
+            </li>
+            <li>
+                <a th:href="@{/store/home}"><h2>Home</h2></a>
+                <a th:href="@{/employee/loginpage}"><h2>Login</h2></a>
+
+                <h2>Social Media</h2>
+                <p>Facebook</p>
+                <p>Instagram</p>
+                      </li>
+        </ul>
+        <p>&copy; <span id="year"></span> Manovikas. All rights reserved.</p>
+
+    </div>
+
+
+<!-- JavaScript to update the year dynamically -->
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" th:href="@{/css/demo.css}"/>
+</head>
+<body>
+
+
+<div th:replace="layout :: header"></div>
+
+<div class="middle" th:fragment="content">
+    <img src="https://gpsv.com.au/wp-content/uploads/2023/07/f40659ff-4a37-4196-9b21-21227e8bad17-1.jpg" alt="Super Market" />
+</div>
+
+<div class="last" >
     <ul class="last-ul">
         <li>
             <h2>Address</h2>
@@ -30,23 +96,12 @@
         </li>
         <li>
             <h2>Social Media</h2>
-        </li>
-        <li>
-            <a th:href="https://www.linkedin.com/in/manovikas-mukkerla-a556b6235/"><h2>LinkedIn</h2></a>
-        </li>
-        <li>
-            <a th:href="https://github.com/manovikas123"><h2>Github</h2></a>
+            <p>Facebook</p>
+            <p>Instagram</p>
         </li>
     </ul>
-    <p>&copy; <span id="year"></span> Manovikas. All rights reserved.</p>
 </div>
-
-<!-- JavaScript to update the year dynamically -->
-<script>
-    window.onload = function() {
-        document.getElementById("year").textContent = new Date().getFullYear();
-    };
-</script>
 
 </body>
 </html>
+-->
