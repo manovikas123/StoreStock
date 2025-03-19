@@ -1,20 +1,26 @@
-# Use Java 21 base image
-FROM eclipse-temurin:21-jdk
+# Use Maven base image with Java 21
+FROM maven:3.9.6-eclipse-temurin-21 as builder
 
 # Set working directory
 WORKDIR /app
 
-# Copy Maven wrapper and project files
-COPY . .
+# Copy Maven project files
+COPY pom.xml .
+COPY src ./src
 
-# Grant execute permissions to Maven wrapper
-RUN chmod +x ./mvnw
+# Build the project
+RUN mvn -B -DskipTests clean install
 
-# Build the project with Maven
-RUN ./mvnw -B -DskipTests clean install
+# Use OpenJDK 21 for runtime
+FROM openjdk:21-jdk-slim
 
-# Expose the Spring Boot application port
+WORKDIR /app
+
+# Copy the built JAR file from the builder stage
+COPY --from=builder /app/target/storestock-1.0-SNAPSHOT.jar app.jar
+
+# Expose port 8080
 EXPOSE 8080
 
 # Run the application
-CMD ["java", "-jar", "target/storestock-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
