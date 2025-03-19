@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -57,7 +58,7 @@ public class UpdateController {
 
 
     String Iname=null,Bname=null;
-    Integer Pname=null;
+   BigDecimal Pname=null;
     @PostMapping("/saveupdate")
     public String saveupdate(@ModelAttribute StockDTO stockDto, Model model) {
 
@@ -150,7 +151,7 @@ public class UpdateController {
 
 
     String Itname=null,Btname=null;
-    Integer Ptname=null;
+    BigDecimal Ptname=null;
     @PostMapping("/reducestock")
     public String reduceStock(@ModelAttribute StockDTO stockDto,Model model) {
 

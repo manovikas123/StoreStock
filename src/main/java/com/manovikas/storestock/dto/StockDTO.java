@@ -4,6 +4,7 @@ import com.manovikas.storestock.entity.Brand;
 import com.manovikas.storestock.entity.Item;
 import com.manovikas.storestock.entity.PriceQuantity;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class StockDTO {
     private String itemName;
     private String brandName;
 
-    private Integer priceItem;
+    private BigDecimal priceItem;
     private Integer quantity;
 
 
@@ -49,7 +50,7 @@ public class StockDTO {
     }
 
 
-    public StockDTO(String itemName, String brandName, Integer priceItem, Integer quantity) {
+    public StockDTO(String itemName, String brandName, BigDecimal priceItem, Integer quantity) {
         this.itemName = itemName;
         this.brandName = brandName;
         this.priceItem = priceItem;
@@ -73,11 +74,11 @@ public class StockDTO {
         this.brandName = brandName;
     }
 
-    public Integer getPriceItem() {
+    public BigDecimal getPriceItem() {
         return priceItem;
     }
 
-    public void setPriceItem(Integer priceItem) {
+    public void setPriceItem(BigDecimal priceItem) {
         this.priceItem = priceItem;
     }
 

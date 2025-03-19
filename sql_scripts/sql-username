@@ -1,4 +1,73 @@
-'CREATE TABLE `employee` (
+-- Disable foreign key checks for import
+SET FOREIGN_KEY_CHECKS=0;
+
+-- Table structure for `item`
+DROP TABLE IF EXISTS `item`;
+CREATE TABLE `item` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `item_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `item_name` (`item_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
+
+-- Insert data for `item`
+INSERT INTO `item` VALUES
+(14,'Bath Soap'),(11,'Biscuit Pack'),(7,'Coffee Powder'),
+(5,'Cooking Oil'),(10,'Coriander Powder'),(13,'Detergent Powder'),
+(18,'Ghee'),(17,'Hair Oil'),(20,'Instant Noodles'),
+(19,'Jaggery'),(9,'Red Chilli Powder'),(4,'Salt'),
+(16,'Shampoo Bottle'),(12,'Soft Drink'),(3,'Sugar'),
+(6,'Tea Powder'),(15,'Toothpaste'),(8,'Turmeric Powder'),
+(2,'Wheat Flour');
+
+-- Table structure for `brand`
+DROP TABLE IF EXISTS `brand`;
+CREATE TABLE `brand` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `brand_name` varchar(255) NOT NULL,
+  `item_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_item_brand` (`item_id`,`brand_name`),
+  CONSTRAINT `fk_brand_item` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
+
+-- Insert data for `brand`
+INSERT INTO `brand` VALUES
+(4,'Pillsbury',2),(5,'Madhur',3),(6,'Tata Salt',4),
+(7,'Fortune',5),(24,'Gold Drop',5),(8,'Saffola',5),
+(9,'Tata Tea',6),(10,'Bru',7),(11,'Everest',8),
+(12,'MDH',9),(13,'Britannia',11),(14,'Parle-G',11),
+(15,'Coca-Cola',12),(16,'Pepsi',12),(17,'Surf Excel',13),
+(23,'Britannia',14),(18,'Lux',14),(19,'Colgate',15),
+(20,'Pantene',16);
+
+-- Table structure for `price_quantity`
+DROP TABLE IF EXISTS `price_quantity`;
+CREATE TABLE `price_quantity` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `price_item` decimal(10,2) NOT NULL,
+  `quantity` int NOT NULL,
+  `brand_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_brand_price` (`brand_id`,`price_item`),
+  CONSTRAINT `fk_price_quantity_brand` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`)
+    ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
+
+-- Insert data for `price_quantity`
+INSERT INTO `price_quantity` VALUES
+(4,210.00,10,4),(5,45.00,1,5),(6,20.00,1,6),
+(8,160.00,1,8),(9,120.00,1,9),(11,40.00,0,11),
+(12,50.00,0,12),(13,10.00,7,13),(14,8.00,5,14),
+(15,40.00,19,15),(16,38.00,46,16),(17,90.00,70,17),
+(19,50.00,6,19),(20,110.00,0,20),(23,78.00,10,23),
+(25,5.00,15,13),(28,163.00,9,24),(29,56.00,4,8),
+(30,234.00,7,24);
+
+-- Table structure for `employee`
+DROP TABLE IF EXISTS `employee`;
+CREATE TABLE `employee` (
   `id` int NOT NULL AUTO_INCREMENT,
   `firstname` varchar(100) NOT NULL,
   `lastname` varchar(100) NOT NULL,
@@ -8,16 +77,33 @@
   PRIMARY KEY (`id`),
   UNIQUE KEY `mail` (`mail`),
   UNIQUE KEY `username` (`username`),
-  CONSTRAINT `fk_employee_username` FOREIGN KEY (`username`) REFERENCES `user_password` (`username`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci'
+  CONSTRAINT `fk_employee_username` FOREIGN KEY (`username`) REFERENCES `user_password` (`username`)
+    ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
+-- Insert data for `employee`
+INSERT INTO `employee` VALUES
+(2,'Manovikas','Mukkerla','manovikasmmv@gmail.com','ROLE_OWNER','manovikas'),
+(3,'Harshini','Mukkerla','harshini@gmail.com','ROLE_MANAGER','harshini'),
+(5,'mavi','mukkerla','mavimmv@gmail.com','ROLE_EMPLOYEE','mavi');
 
-'CREATE TABLE `user_password` (
+-- Table structure for `user_password`
+DROP TABLE IF EXISTS `user_password`;
+CREATE TABLE `user_password` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci'
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+-- Insert data for `user_password`
+INSERT INTO `user_password` VALUES
+(2,'manovikas','$2a$10$tzgMIWI5Rz0wDcaWlh3RF.BCTpJb7ao7Wi0O09GAst48Xf8PG6W2.'),
+(3,'harshini','$2a$10$7F98swFopXwCAEBZc7DZm.mmFACJBkJ33pLMMO0A70aQ/i4gEIJtK'),
+(5,'mavi','$2a$10$H0G6zDTvF7fAFQ5QyObr9udFb4Vj2r0JcDnQrME/VjQZRlEfNV0sW');
+
+-- Re-enable foreign key checks
+SET FOREIGN_KEY_CHECKS=1;
 
 

@@ -3,6 +3,8 @@ package com.manovikas.storestock.entity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name="price_quantity")
 public class PriceQuantity {
@@ -12,7 +14,7 @@ public class PriceQuantity {
     private int id;
 
     @Column(name="price_item")
-    private int priceItem;
+    private BigDecimal priceItem;
 
     @Column(name="quantity")
     private int quantity;
@@ -24,13 +26,13 @@ public class PriceQuantity {
 
     public PriceQuantity(){}
 
-    public PriceQuantity(int id, int priceItem, int quantity) {
+    public PriceQuantity(int id, BigDecimal priceItem, int quantity) {
         this.id = id;
         this.priceItem = priceItem;
         this.quantity = quantity;
     }
 
-    public PriceQuantity(int priceItem, int quantity) {
+    public PriceQuantity(BigDecimal priceItem, int quantity) {
         this.priceItem = priceItem;
         this.quantity = quantity;
     }
@@ -46,11 +48,11 @@ public class PriceQuantity {
         this.id = id;
     }
 
-    public int getPriceItem() {
+    public BigDecimal getPriceItem() {
         return priceItem;
     }
 
-    public void setPriceItem(int priceItem) {
+    public void setPriceItem(BigDecimal priceItem) {
         this.priceItem = priceItem;
     }
 
