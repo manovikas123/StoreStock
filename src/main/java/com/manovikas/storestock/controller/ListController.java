@@ -52,7 +52,7 @@ public class ListController {
         List<StockDTO> stocks=listService.getStockByItem(stockDto);
 
         if(stocks == null || stocks.isEmpty()) {
-            model.addAttribute("errorMessage", "No items found please go back");
+            model.addAttribute("errorMessage", "No items found please Refresh");
         }
         model.addAttribute("stocks",stocks);
         model.addAttribute("stockDto",stockDto );
@@ -101,7 +101,7 @@ public class ListController {
         List<StockDTO> stocks=listService.getStockByBrand(stockDto);
 
         if(stocks == null || stocks.isEmpty()) {
-            model.addAttribute("errorMessage", "No items found please go back");
+            model.addAttribute("errorMessage", "No items found please Refresh");
         }
         model.addAttribute("stocks",stocks);
         model.addAttribute("stockDto",stockDto );

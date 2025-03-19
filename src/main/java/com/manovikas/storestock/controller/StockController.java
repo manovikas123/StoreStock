@@ -99,7 +99,7 @@ public class StockController {
             if(extistingBrand.isPresent())
             {
                 System.out.println("in");
-                model.addAttribute("errorMessage", "Brand name already exists! So Go Back ");
+                model.addAttribute("errorMessage", "Brand name already exists! So Refresh ");
                 model.addAttribute("stockDto", stockDto);
                 return "stock/createBrandAndPQ"; // Return to the same form page with the error message
             }
@@ -121,7 +121,7 @@ public class StockController {
 
 
 
-    @GetMapping("/createstock1/createPriceAndQuantity")
+    @GetMapping("createPriceAndQuantity")
     public String createPriceAndQuantity(Model model)
     {
         Itemname=null;
@@ -165,7 +165,7 @@ String Itemname=null;
         Optional<PriceQuantity> p=priceQuantityRepository.findByPriceItemAndBrandId(stockDto.getPriceItem(),brandId);
         if(p.isPresent())
         {
-            model.addAttribute("errorMessage", "Brand with that price already exists! So Go Back ");
+            model.addAttribute("errorMessage", "Brand with that price already exists! So Refresh ");
             model.addAttribute("stockDto", stockDto);
             return "stock/createPriceAndQuantity";
         }

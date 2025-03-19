@@ -161,7 +161,7 @@ public class DeleteController {
 
                 if (price.isEmpty()) {
                     System.out.println("No price found for brand: " + stockDto.getBrandName());
-                    model.addAttribute("errorMessage", "No price found for selected brand so Go back.");
+                    model.addAttribute("errorMessage", "No price found for selected brand so Refresh.");
                 }
                 stockDto.setPrice(price);
                 Bname = stockDto.getBrandName();
