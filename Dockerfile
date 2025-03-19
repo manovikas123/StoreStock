@@ -1,27 +1,32 @@
-# Use an official Maven image to build the application
-FROM maven:3.9.9-openjdk-21 as build
+# Use Maven to build the application
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy the pom.xml and src folder into the container
+# Copy the project files
 COPY pom.xml .
 COPY src ./src
 
 # Build the application
 RUN mvn clean package -DskipTests
 
-# Use an official OpenJDK image to run the application
-FROM openjdk:21-jdk
+# Use OpenJDK for running the app
+FROM eclipse-temurin:21-jdk
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy the built jar file from the build image
+# Copy the JAR file from the build image
 COPY --from=build /app/target/storestock-1.0-SNAPSHOT.jar app.jar
 
-# Expose the port that your Spring Boot app runs on
+# Expose application port
 EXPOSE 8080
 
-# Run the Spring Boot application
+# Ensure the correct database credentials are used
+ENV SPRING_DATASOURCE_URL=jdbc:mysql://turntable.proxy.rlwy.net:50737/railway
+ENV SPRING_DATASOURCE_USERNAME=root
+ENV SPRING_DATASOURCE_PASSWORD=fLnQndzAPraNEsNBybYtDQoaNwGqrwrB
+
+# Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
