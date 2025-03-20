@@ -192,7 +192,7 @@ String Itemname=null;
     }
 
 
-    @GetMapping("/firstpage")
+    @GetMapping("/")
     public String firstpage(Model model)
     {
         return "first_page";
