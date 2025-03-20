@@ -197,10 +197,7 @@ String Itemname=null;
     {
         return "first_page";
     }
-    @GetMapping("/")
-    public String redirectToStore() {
-        return "redirect:/store/"; // ✅ Redirect root URL to /store/
-    }
+
     @GetMapping("/createstock1")
     public String createstock1(Model model)
     {
