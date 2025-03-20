@@ -192,6 +192,11 @@ String Itemname=null;
     }
 
 
+    @RequestMapping("/firstpage")
+    public String firstpage(Model model)
+    {
+        return "first_page";
+    }
     @GetMapping("/createstock1")
     public String createstock1(Model model)
     {
