@@ -19,7 +19,15 @@
     </ul>
 </div>
 -->
-<div th:replace="layout :: header"></div>
+<div class="top" th:fragment="header">
+    <ul class="top-ul">
+        <a th:href="@{/store/home}"><h2>Home</h2></a>
+        <a th:href="@{/employee/loginpage}"><h2>Login</h2></a>
+    <!--    <a th:href="@{/updatedelete/services}"><h2>Services</h2></a>
+        <a th:href="@{/logout}"><h2>Logout</h2></a>
+        -->
+    </ul>
+</div>
 <div class="middle" th:fragment="content">
     <img src="https://gpsv.com.au/wp-content/uploads/2023/07/f40659ff-4a37-4196-9b21-21227e8bad17-1.jpg"
          alt="Super Market" class="img-fluid rounded">
