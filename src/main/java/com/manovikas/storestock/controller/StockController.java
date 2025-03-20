@@ -185,14 +185,14 @@ String Itemname=null;
 
 
 
-    @RequestMapping("/home")
+    @GetMapping("/home")
     public String home123(Model model)
     {
         return "home";
     }
 
 
-    @RequestMapping("/firstpage")
+    @GetMapping("/firstpage")
     public String firstpage(Model model)
     {
         return "first_page";
