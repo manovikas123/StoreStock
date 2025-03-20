@@ -31,10 +31,10 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) // Disable CSRF for testing (enable in production)
                 .authorizeHttpRequests(configurer -> configurer
-                        .requestMatchers("/store/","/store/home", "/css/**", "/js/**").permitAll()
+                        .requestMatchers("/store/", "/css/**", "/js/**").permitAll()
                         .requestMatchers("/delete/**", "/list/**", "/store/**").hasAnyRole("OWNER", "MANAGER")
                         .requestMatchers("/employee/**").hasRole("OWNER")
-                        .requestMatchers("/store/services","/updatedelete/**","/store/").hasAnyRole("OWNER", "MANAGER", "EMPLOYEE")
+                        .requestMatchers("/store/services","/updatedelete/**","/store/","/store/home").hasAnyRole("OWNER", "MANAGER", "EMPLOYEE")
 
                         .requestMatchers("/access-denied").permitAll()
                         .anyRequest().authenticated()
