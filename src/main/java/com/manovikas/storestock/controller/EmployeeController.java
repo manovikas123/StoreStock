@@ -93,7 +93,10 @@ public class EmployeeController {
         return "employeepage";
     }
 
-
+    @GetMapping("/")
+    public String redirectToStore() {
+        return "redirect:/store/";
+    }
 
 
 }
