@@ -47,7 +47,7 @@ public class SecurityConfig {
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .permitAll()
-                        .logoutSuccessUrl("/store/home"))
+                        .logoutSuccessUrl("/store/"))
                 .userDetailsService(userService)
                 .exceptionHandling()
                 .accessDeniedPage("/access-denied");
