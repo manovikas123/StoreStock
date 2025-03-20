@@ -12,7 +12,15 @@
 </head>
 
 <body>
-<div th:replace="layout :: header"></div>
+<div class="top" th:fragment="header">
+    <ul class="top-ul">
+        <a th:href="@{/}"><h2>Home</h2></a>
+        <a th:href="@{/employee/loginpage}"><h2>Login</h2></a>
+
+
+    </ul>
+</div>
+
 <div class="middle" th:fragment="content">
 
     <div id="loginbox" style="margin-top: 50px;" class="col-md-4 offset-md-4">
