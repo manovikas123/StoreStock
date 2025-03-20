@@ -34,7 +34,7 @@ public class SecurityConfig {
                         .requestMatchers("/store/","/store/home", "/css/**", "/js/**").permitAll()
                         .requestMatchers("/delete/**", "/list/**", "/store/**").hasAnyRole("OWNER", "MANAGER")
                         .requestMatchers("/employee/**").hasRole("OWNER")
-                        .requestMatchers("/store/services","/updatedelete/**").hasAnyRole("OWNER", "MANAGER", "EMPLOYEE")
+                        .requestMatchers("/store/services","/updatedelete/**","/store/").hasAnyRole("OWNER", "MANAGER", "EMPLOYEE")
 
                         .requestMatchers("/access-denied").permitAll()
                         .anyRequest().authenticated()
